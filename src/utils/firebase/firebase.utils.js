@@ -14,7 +14,9 @@ import {
   getFirestore,
   doc,
   getDoc,
-  setDoc
+  setDoc,
+  collection,
+  writeBatch
 } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -42,6 +44,10 @@ const firebaseConfig = {
   export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
   export const db = getFirestore();
+
+  export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+    
+  }
 
   export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     const userDocRef = doc(db, 'users', userAuth.uid);
