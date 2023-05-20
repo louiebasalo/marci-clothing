@@ -3,16 +3,15 @@
     flex-direction: column;
     margin-bottom: 30px;
   
-    .title {
-      font-size: 28px;
-      margin-bottom: 25px;
-      cursor: pointer;
-    }
-  
     .preview {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       column-gap: 20px;
+    }
+
+    .category-link {
+      padding: 10px 15px;
+      cursor: pointer;
     }
   }
   
