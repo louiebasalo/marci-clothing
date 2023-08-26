@@ -26,3 +26,6 @@ const composedEnhancers = composedEnhancer(applyMiddleware(...middleWares));
 export const store = createStore(persistedReducer, undefined, composedEnhancers);  //generate the store
 
 export const persistor = persistStore(store);
+
+
+//adding this spaces just to test git contribution calendar
