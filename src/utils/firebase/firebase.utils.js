@@ -91,7 +91,7 @@ const firebaseConfig = {
       }
     }
 
-    return userDocRef;
+    return userSnapshot;
 
   };
 
