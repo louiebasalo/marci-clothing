@@ -3,7 +3,6 @@ import {compose, legacy_createStore as createStore, applyMiddleware} from 'redux
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import logger from 'redux-logger';
-// import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 
 import { rootSaga } from './root-saga';
