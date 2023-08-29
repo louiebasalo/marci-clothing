@@ -27,7 +27,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
 
   const signout = () => {
-    dispatch(singOutUserStart);
+    dispatch(singOutUserStart());
   }
 
 

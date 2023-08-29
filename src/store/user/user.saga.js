@@ -3,7 +3,7 @@ import { takeLatest, all, call, put} from 'redux-saga/effects';
 
 import { USER_ACTION_TYPES } from './user.types';
 
-import { signInSuccess, signInFailed, signOutUserSuccess } from './user.action';
+import { signInSuccess, signInFailed, signOutUserSuccess, signOutUserFailed } from './user.action';
 
 import { createUserDocumentFromAuth, getCurrentUser , signInWithGooglePopup, signInAuthUserWithEmailAndPassword, signOutUser} from '../../utils/firebase/firebase.utils';
 
@@ -43,12 +43,13 @@ export function* signInWithEmail({ payload: {email, password}}){
     }
 }
 
-export function* signCurrentOutUser(){
+export function* signOutCurrentUser(){
     try{
+        console.log('eeee')
         yield call(signOutUser);
-        yield put(signOutUserSuccess);
+        yield put(signOutUserSuccess());
     }catch (error) {
-        yield put(error)
+        yield put(signOutUserFailed(error))
     }
 }
 
@@ -80,7 +81,7 @@ export function* onEmailSignInStart(){
 }
 
 export function* onSignOutUserStart(){
-    yield takeLatest(USER_ACTION_TYPES.SIGN_OUT_USER_START, signCurrentOutUser);
+    yield takeLatest(USER_ACTION_TYPES.SIGN_OUT_USER_START, signOutCurrentUser);
 }
 
 export function* userSagas() {

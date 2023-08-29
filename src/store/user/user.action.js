@@ -19,6 +19,9 @@ export const singOutUserStart = () => createAction(USER_ACTION_TYPES.SIGN_OUT_US
 
 export const signOutUserSuccess = () => createAction(USER_ACTION_TYPES.SIGN_OUT_USER_SUCCESS);
 
+export const signOutUserFailed = () => createAction(USER_ACTION_TYPES.SIGN_OUT_USER_FAILED);
+
+
 
 
 
