@@ -9,7 +9,11 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
-import { signOutUser } from "../../utils/firebase/firebase.utils";
+// import { signOutUser } from "../../utils/firebase/firebase.utils";
+
+import { singOutUserStart } from "../../store/user/user.action";
+
+import { useDispatch } from "react-redux";
 
 import {ReactComponent as CrownLogo} from '../../assets/crown.svg'
 
@@ -19,6 +23,13 @@ const Navigation = () => {
 
   const currentUser = useSelector(selectCurrentUser); 
   const isCartOpen = useSelector(selectIsCartOpen);  
+
+  const dispatch = useDispatch();
+
+  const signout = () => {
+    dispatch(singOutUserStart());
+  }
+
 
     return (
       <Fragment>
@@ -31,7 +42,7 @@ const Navigation = () => {
                    SHOP
                 </NavLink>
                 {currentUser ? (
-                  <NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink> //video 108, stoped at minute 5:23
+                  <NavLink as='span' onClick={signout}>SIGN OUT</NavLink> //video 108, stoped at minute 5:23
                 ):(
                   <NavLink to = '/auth'>
                     SIGN IN
