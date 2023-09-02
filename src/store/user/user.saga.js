@@ -73,7 +73,7 @@ export function* isUserAuthenticated(){
         yield call(getSnapshotFromUserAuth, userAuth);
     } catch (error) {
         yield put(signInFailed(error));
-    }
+    } 
     
 }
 
