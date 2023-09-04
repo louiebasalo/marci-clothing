@@ -26,8 +26,6 @@ export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
     try{
         const userSnapshot = yield call(createUserDocumentFromAuth, userAuth, additionalDetails);
         yield put(signInSuccess({ id:userSnapshot.id, ...userSnapshot.data()}))
-        console.log(userSnapshot);
-        console.log(userSnapshot.data);
     }catch (error) {
         yield put(signInFailed(error));
     }
@@ -83,7 +81,8 @@ export function* signUp({payload: {email, password, displayName}}) {
             createAuthUserWithEmailAndPassword, 
             email, 
             password);
-        yield put(signUpSuccess(user, {displayName}));
+        yield put(signUpSuccess(user, {displayName, password}));
+        
     } catch(error){
         yield put(signUpFailed(error));
     }
