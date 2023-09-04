@@ -39,7 +39,7 @@ const Navigation = () => {
             </LogoContainer>
             <NavLinks>
                  <NavLink to='/shop'>
-                   SHOP
+                   SHOP 
                 </NavLink>
                 {currentUser ? (
                   <NavLink as='span' onClick={signout}>SIGN OUT</NavLink> //video 108, stoped at minute 5:23
@@ -48,6 +48,14 @@ const Navigation = () => {
                     SIGN IN
                   </NavLink>
                 )}
+
+              {currentUser ? (
+                  <p>{currentUser.displayName}</p>
+                ):(
+                  <p></p>
+                )}
+               
+
                 <CartIcon />
                 
             </NavLinks>
