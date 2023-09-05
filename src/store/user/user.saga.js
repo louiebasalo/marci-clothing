@@ -56,7 +56,6 @@ export function* signInWithEmail({ payload: {email, password}}){
 
 export function* signOutCurrentUser(){
     try{
-        console.log('eeee')
         yield call(signOutUser);
         yield put(signOutUserSuccess());
     }catch (error) {
@@ -81,7 +80,7 @@ export function* signUp({payload: {email, password, displayName}}) {
             createAuthUserWithEmailAndPassword, 
             email, 
             password);
-        yield put(signUpSuccess(user, {displayName, password}));
+        yield put(signUpSuccess(user, {displayName}));
         
     } catch(error){
         yield put(signUpFailed(error));
