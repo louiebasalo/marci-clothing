@@ -71,7 +71,9 @@ const firebaseConfig = {
 
   export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     const userDocRef = doc(db, 'users', userAuth.uid);
-
+    console.log("tanawn bii")
+    console.log(userAuth);
+    console.log(additionalInformation)
     const userSnapshot = await getDoc(userDocRef);
 
     if(!userSnapshot.exists()){
@@ -80,10 +82,10 @@ const firebaseConfig = {
 
       try{
         await setDoc(userDocRef, {
-          // displayName,
+          displayName, //this one is the display name we get from userDocRef if available; available when we sign up using signInWithGooglePopup
           email,  
           createdAt,
-          ...additionalInformation
+          ...additionalInformation //inside is the additional information such as display name from sign up form
         });
 
       }catch (error){
