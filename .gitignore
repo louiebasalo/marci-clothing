@@ -11,6 +11,8 @@
 # production
 /build
 
+# .env  ## commenting this out since I don't have stripe publisher key to hide 'cause I don't have a strip account.
+
 # misc
 .DS_Store
 .env.local
